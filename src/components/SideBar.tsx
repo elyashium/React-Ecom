@@ -1,5 +1,18 @@
-import { CloudCog } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+
+import { useEffect, useState } from 'react'
+
+
+// creating interfaces for type safety
+
+interface product {
+    category: String;
+}
+
+interface FetchResponse {
+    products: product[]
+}
+
+
 
 const SideBar = () => {
 
@@ -24,7 +37,7 @@ const SideBar = () => {
             try {
 
                 const response = await fetch("https://dummyjson.com/products")
-                const data = await response.json()  //creating a interface = ":"
+                const data: FetchResponse = await response.json()  //creating a interface = ":"
 
 
             } catch (error) {
@@ -32,6 +45,8 @@ const SideBar = () => {
             }
 
         }
+
+        fetchCategories();
 
 
     }, [])  //empty array dependency
