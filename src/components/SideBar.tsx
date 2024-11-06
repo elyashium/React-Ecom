@@ -38,7 +38,8 @@ const SideBar = () => {
 
                 const response = await fetch("https://dummyjson.com/products")
                 const data: FetchResponse = await response.json()  //creating a interface = ":"
-
+                const uniqueCategories = Array.from(new Set(data.products.map(products => products.category)))
+                console.log(uniqueCategories)
 
             } catch (error) {
                 console.log("error fetching products", error)
