@@ -107,16 +107,16 @@ const SideBar = () => {
                     <h2 className="text-xl font-semilbold mb-3">Keywords</h2>
                 </div>
 
-                <div className="">
+                <div>
 
 
-                    {keywords.map((index, keyword) => (
+                    {keywords.map((keyword, index) => (
                         <button
                             key={index}
                             className='block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200'>
 
                             {keyword.toUpperCase()}
-                            
+
                         </button>
 
                     ))}
