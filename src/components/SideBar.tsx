@@ -55,8 +55,8 @@ const SideBar = () => {
 
     }, [])  //empty array dependency
 
-    return (
-        <div className="w-64 p-5 h-screen">
+    return  <div className="w-64 p-5 h-screen">
+
             <h1 className="text-2xl font-bold mb-10 mt-4"> React Store</h1>
 
             <section>
@@ -91,7 +91,7 @@ const SideBar = () => {
 
                                 type="radio"
                                 name='categories'
-                                value ={String(category)}
+                                value={String(category)}
                                 className='mr-2 w-[16px] h-[16px]' />
 
                             {category.toUpperCase()}
@@ -126,7 +126,7 @@ const SideBar = () => {
 
 
         </div>
-    )
+    
 }
 
 export default SideBar
