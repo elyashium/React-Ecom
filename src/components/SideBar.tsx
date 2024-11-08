@@ -39,8 +39,12 @@ const SideBar = () => {
                 const response = await fetch("https://dummyjson.com/products")
                 const data: FetchResponse = await response.json()  //creating a interface = ":"
                 const uniqueCategories = Array.from(new Set(data.products.map(products => products.category)))
+
                 setCategories(uniqueCategories);
+
+
             } catch (error) {
+
                 console.log("error fetching products", error)
             }
 
@@ -69,6 +73,53 @@ const SideBar = () => {
 
                     <input type="text" className='border-2 mr-2 px-5 py-3 mb-3 w-full' placeholder='Max' />
 
+                </div>
+
+                {/* categories */}
+
+                <div className="mb-5">
+                    <h2 className="text-xl font-semibold mb-3">Categories</h2>
+                </div>
+
+                <section>
+
+                    {Categories.map((category, index) => (
+
+                        <label key={index} className='block mb-2'>
+
+                            <input
+
+                                type="radio"
+                                name='categories'
+                                value={category}
+                                className='mr-2 w-[16px] h-[16px]' />
+
+                            {category.toUpperCase()}
+
+                        </label>
+                    ))}
+                </section>
+
+
+                {/* keyword section */}
+
+                <div className="mb-5 mt-4">
+                    <h2 className="text-xl font-semilbold mb-3">Keywords</h2>
+                </div>
+
+                <div className="">
+
+
+                    {keywords.map((index, keyword) => (
+                        <button
+                            key={index}
+                            className='block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200'>
+
+                            {keyword.toUpperCase()}
+                            
+                        </button>
+
+                    ))}
                 </div>
 
             </section>
