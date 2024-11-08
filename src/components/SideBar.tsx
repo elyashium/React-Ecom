@@ -55,57 +55,56 @@ const SideBar = () => {
 
     }, [])  //empty array dependency
 
-    return  <div className="w-64 p-5 h-screen">
+    return <div className="w-64 p-5 h-screen">
 
-            <h1 className="text-2xl font-bold mb-10 mt-4"> React Store</h1>
+        <h1 className="text-2xl font-bold mb-10 mt-4"> React Store</h1>
+
+        <section>
+
+
+            <input
+                type="text"
+                className="border-2 rounded px-2 sm:mb-0"
+                placeholder='Search Products' />
+
+            <div className="flex justify-center items-center">
+
+                <input type="text" className='border-2 mr-2 px-5 py-3 mb-3 w-full' placeholder='Min' />
+
+                <input type="text" className='border-2 mr-2 px-5 py-3 mb-3 w-full' placeholder='Max' />
+
+            </div>
+
+            {/* categories */}
+
+            <div className="mb-5">
+                <h2 className="text-xl font-semibold mb-3">Categories</h2>
+            </div>
 
             <section>
 
+                {Categories.map((category, index) => (
 
-                <input
-                    type="text"
-                    className="border-2 rounded px-2 sm:mb-0"
-                    placeholder='Search Products' />
+                    <label key={index} className='block mb-2'>
 
-                <div className="flex justify-center items-center">
+                        <input
 
-                    <input type="text" className='border-2 mr-2 px-5 py-3 mb-3 w-full' placeholder='Min' />
+                            type="radio"
+                            name='categories'
+                            value={String(category)}
+                            className='mr-2 w-[16px] h-[16px]' />
 
-                    <input type="text" className='border-2 mr-2 px-5 py-3 mb-3 w-full' placeholder='Max' />
+                        {category.toUpperCase()}
 
-                </div>
-
-                {/* categories */}
-
-                <div className="mb-5">
-                    <h2 className="text-xl font-semibold mb-3">Categories</h2>
-                </div>
-
-                <section>
-
-                    {Categories.map((category, index) => (
-
-                        <label key={index} className='block mb-2'>
-
-                            <input
-
-                                type="radio"
-                                name='categories'
-                                value={String(category)}
-                                className='mr-2 w-[16px] h-[16px]' />
-
-                            {category.toUpperCase()}
-
-                        </label>
-                    ))}
-                </section>
+                    </label>
+                ))}
+            </section>
 
 
-                {/* keyword section */}
+            {/* keyword section */}
 
-                <div className="mb-5 mt-4">
-                    <h2 className="text-xl font-semilbold mb-3">Keywords</h2>
-                </div>
+            <div className="mb-5 mt-4">
+                <h2 className="text-xl font-semilbold mb-3">Keywords</h2>
 
                 <div>
 
@@ -122,11 +121,16 @@ const SideBar = () => {
                     ))}
                 </div>
 
-            </section>
+            </div>
+
+            <button className='w-full mb-[4rem] py-2 bg-black text-white rounded mt-5'>
+                Reset filters
+            </button>
+        </section>
 
 
-        </div>
-    
+    </div>
+
 }
 
 export default SideBar
