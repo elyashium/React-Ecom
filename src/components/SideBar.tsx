@@ -91,7 +91,7 @@ const SideBar = () => {
 
                                 type="radio"
                                 name='categories'
-                                value={category}
+                                value ={String(category)}
                                 className='mr-2 w-[16px] h-[16px]' />
 
                             {category.toUpperCase()}
