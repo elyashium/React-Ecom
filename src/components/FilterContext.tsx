@@ -34,3 +34,28 @@ interface filterContextType {
     keyword: string;
     setKeyword: (keyword: string) => void;
 }
+
+const FilterContext = createContext<filterContextType | undefined>(undefined)
+
+
+// There are two different uses of undefined here:
+
+// First undefined in <filterContextType | undefined>:
+
+
+// This is the TYPE definition
+// It tells TypeScript that the context can either have a value of type filterContextType OR be undefined
+// This is a safety measure for when the context is accessed outside of a provider
+
+
+// Second undefined in (undefined):
+
+
+// This is the INITIAL VALUE of the context
+// It's the actual value passed to createContext
+// This is what the context will return if someone tries to use it outside of a provider
+
+
+export const FilterProvider: React.FC<({childern : ReactNode})> =({children}) =>{
+    
+}
