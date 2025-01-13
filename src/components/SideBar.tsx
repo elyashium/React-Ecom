@@ -9,6 +9,7 @@ interface product {
 }
 
 interface FetchResponse {
+    
     products: product[]
 }
 
